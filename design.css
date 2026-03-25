@@ -1,0 +1,631 @@
+/* -------------------- Body Setup -------------------- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF6666, #FF4D4D);
+    font-family: "Chewy", system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------- Hearts Container -------------------- */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    color: #FF0038;
+    font-size: 20px;
+    animation: floatHeart linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatHeart {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* -------------------- Intro Screens -------------------- */
+.intro-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF6666, #FF4D4D);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Chewy", system-ui;
+    font-size: 40px;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    z-index: 10;
+    background: rgba(255, 77, 77, 0.9);
+    backdrop-filter: blur(2px);
+}
+
+    .intro-screen.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+/* Intro text base */
+.intro-text {
+    max-width: 80%;
+}
+
+    /* Letter animation */
+    .intro-text span {
+        display: inline-block;
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+
+        .intro-text span.show {
+            animation: letterIn 0.4s ease forwards;
+        }
+
+        .intro-text span.hide {
+            animation: letterOut 0.3s ease forwards;
+        }
+
+/* -------------------- Intro Hint -------------------- */
+.intro-hint {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-family: "Chewy", system-ui;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    animation: hintFade 2s ease-in-out infinite;
+}
+
+@keyframes hintFade {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -3px);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Appear animation */
+@keyframes letterIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Disappear animation */
+@keyframes letterOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-20px);
+    }
+}
+
+/* -------------------- Center Box -------------------- */
+.center-box {
+    position: relative;
+    max-width: 600px;
+    padding: 60px 80px;
+    background: linear-gradient(135deg, #FFE5EC, #FFD6E0);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    animation: popInMain 0.8s ease;
+}
+
+@keyframes popInMain {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Message Text */
+.message {
+    font-size: 20px;
+    text-align: justify;
+    color: #5a3e2b;
+    line-height: 1.6;
+    word-wrap: break-word;
+    transition: opacity 0.3s ease;
+}
+
+/* -------------------- Buttons -------------------- */
+.btn {
+    position: absolute;
+    padding: 16px 22px;
+    font-size: 16px;
+    font-family: "Chewy", system-ui;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #FF69B4;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+    .btn:hover {
+        background-color: #FF1493;
+        transform: scale(1.12);
+    }
+
+/* Button Positions */
+.top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-70%, -70%);
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    transform: translate(70%, -70%);
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-70%, 70%);
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(70%, 70%);
+}
+
+/* Individual hover adjustments */
+.top-left:hover {
+    transform: translate(-70%, -70%) scale(1.1);
+}
+
+.top-right:hover {
+    transform: translate(70%, -70%) scale(1.1);
+}
+
+.bottom-left:hover {
+    transform: translate(-70%, 70%) scale(1.1);
+}
+
+.bottom-right:hover {
+    transform: translate(70%, 70%) scale(1.1);
+}
+
+/* -------------------- Tabs -------------------- */
+.tab {
+    position: relative;
+    z-index: 2;
+    display: none;
+    text-align: center;
+    color: #990033;
+}
+
+    .tab h1 {
+        color: black;
+    }
+
+    .tab button {
+        font-family: "Chewy", system-ui;
+        margin-top: 20px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        background: #FF69B4;
+        color: white;
+        cursor: pointer;
+    }
+
+        .tab button:hover {
+            background-color: #FF1493;
+        }
+
+/* -------------------- 100 Things Grid -------------------- */
+.things-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.thing {
+    background: #FFE5EC;
+    padding: 15px;
+    border-radius: 10px;
+    color: #990033;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+    .thing.show {
+        animation: fadeUp 0.5s ease forwards;
+    }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.special {
+    background: #FF69B4;
+    color: white;
+    grid-column: span 3;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    transform: scale(1.1);
+    border: 3px solid #FF1493;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
+}
+
+/* -------------------- Recommendations -------------------- */
+.recommendations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+.rec-card {
+    background: #FFE5EC;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .rec-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+.rec-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #990033;
+}
+
+.rec-reason {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #660022;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.3s ease;
+}
+
+/* -------------------- Letter Container -------------------- */
+.letter-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #FFE5EC;
+    border-radius: 12px;
+    color: #990033;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+    .letter-container.show {
+        animation: fadeUp 0.6s ease forwards;
+    }
+
+    .letter-container:hover {
+        transform: scale(1.01);
+    }
+
+/* -------------------- Harana -------------------- */
+.harana-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.harana-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.harana-card {
+    display: flex;
+    background: #FFE5EC;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .harana-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+.harana-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.harana-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #990033;
+}
+
+.harana-artist {
+    font-size: 14px;
+    color: #660022;
+}
+
+.harana-info video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Styles for each card */
+.style-1 {
+    background: #FFD6E0;
+}
+
+.style-2 {
+    background: #FFB6C1;
+    flex-direction: row-reverse;
+}
+
+.style-3 {
+    background: #FFC0CB;
+}
+
+.style-4 {
+    background: #FF69B4;
+    color: white;
+}
+
+/* -------------------- Secret Tab -------------------- */
+.secret-button {
+    font-size: 12px;
+    font-family: "Chewy", system-ui;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: psstFloat 2.5s ease-in-out infinite;
+}
+
+    .secret-button:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+
+@keyframes psstFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+#secretTab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black !important;
+    color: white;
+    display: none; /* keep hidden initially */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 🔥 VERY IMPORTANT */
+}
+
+/* SECRET TAB INTRO FIX */
+#secretTab .intro-screen {
+    opacity: 1 !important; /* make it visible */
+    pointer-events: all !important; /* allow clicks */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black !important; /* solid black background */
+    color: white !important; /* text color */
+}
+
+#secretTab .intro-text {
+    font-size: 1.8em;
+    color: white !important; /* ensures text is visible */
+    text-align: center;
+}
+
+    .secret-tab .click-hint {
+        position: absolute;
+        bottom: 30px;
+        font-size: 14px;
+        opacity: 0.6;
+    }
+
+/* -------------------- SECRET TAB VIDEO -------------------- */
+.secret-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: black; /* black fills screen around video */
+    overflow: hidden;
+    position: relative;
+}
+
+    .secret-content video {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* preserves video aspect ratio */
+        background: black; /* ensures black bars around video */
+    }
+
+#secretIntro {
+    position: absolute;
+    inset: 0;
+    background: black;
+    display: flex; /* 🔥 force visible */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10000;
+}
+
+#secretContent {
+    display: none; /* initially hidden */
+    justify-content: center;
+    align-items: center;
+    position: relative; /* or absolute inside secretTab */
+    z-index: 10001; /* above secretIntro after it disappears */
+}
+
+/* -------------------- MOBILE INTRO & TYPEWRITER -------------------- */
+@media (max-width: 768px) {
+    /* Intro screens fit vertically */
+    .intro-screen {
+        font-size: 1.2em; /* smaller font for mobile */
+        padding: 20px;
+        max-height: 90vh; /* prevent vertical overflow */
+        overflow-y: auto; /* scroll only if really needed */
+        box-sizing: border-box;
+    }
+
+    /* Intro text wraps nicely */
+    .intro-text {
+        font-size: 1em;
+        line-height: 1.4;
+        max-width: 90%;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+        /* Letter spans in typewriter */
+        .intro-text span {
+            display: inline-block;
+            transform: scale(0.5) translateY(20px);
+        }
+
+    /* Intro hint stays visible at bottom */
+    .intro-hint {
+        font-size: 12px;
+        bottom: 10px;
+    }
+
+    /* Center box padding smaller */
+    .center-box {
+        padding: 20px 15px;
+    }
+
+    /* Letter container resize */
+    .letter-container {
+        max-height: 70vh;
+        overflow-y: auto; /* scroll if content is too long */
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 15px;
+    }
+
+    /* Secret intro in mobile */
+    #secretIntro {
+        padding: 15px;
+        max-height: 90vh;
+        overflow-y: auto;
+        font-size: 1em;
+    }
+
+    #secretIntroText {
+        font-size: 1em;
+        line-height: 1.4;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
