@@ -117,15 +117,15 @@ const messageText = `Hi Jem :>
 
 I don't really know how to start this letter/message, but I just wanted to say thank you. Thank you for being someone I can talk to easily, someone who doesn't judge, and someone who makes each moment special.
 
-When I first confessed to you, I was scared as fuck. I was so scared that when you were reading the letter I made for you, I could hear my heart pounding. I was scared because I was already expecting the worst. I thought that our friendship/relationship that we have would be ruined. I thought things would be awkward and that we would grow apart. But I was wrong and I'm glad I was wrong.
+When I first confessed to you, I was scared as fuck. I was so scared that when you were reading the letter I made for you, I could hear my heart pounding. I was scared because I was already expecting the worst. I thought that our friendship/relationship that we have would be ruined. I thought things would be awkward and that we would grow apart. But I was wrong.
 
-After I confessed, I was so happy. I felt lighter and more confident. I don't know why I felt more confident, but I used that to make things not awkward for us. Each time I showed you a reel to tease you or compliment you randomly was all spontaneous.
+After I confessed, I was so happy. I felt lighter and more confident. I don't know why I felt more confident, but I used that to make things not awkward for us. Each time I showed you a reel to tease you or compliment you randomly was all spontaneous. I didn't really expect that I would become bold and confident like this. But I liked the dynamic of whenever I showed you something or complimented you, you would either flip me off or you wouldn't know how to react.
 
-Anyways, I'm yapping too much. I just wanted to tell you how much I really appreciate you. I like you Jem. 
+Anyways, I'm yapping too much. I just wanted to tell you how much I really appreciate you. Even if there's nothing happening between us, I become so happy whenever I help you, gift you something you'd like, or just talk to you. I know I've said this so many times already, but I won't stop saying it just cause I like to say it. I like you Jem.
 
-Anyways, that's all I really wanted to say. I hope you will enjoy exploring this website.
+Anyways, that's all I really wanted to say. I hope you will enjoy exploring this website. I also hope that you'd like all the features and things I put in this website!
 
-P.S. There's a secret in one of these tabs.`;
+P.S. There's a secret in one of these tabs. I'll give you a hint, it's not in this tab and the home page.`;
 
 function typeLetter(containerId, text, speed = 20) {
     const container = document.getElementById(containerId);
